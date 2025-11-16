@@ -1,5 +1,9 @@
 # Todo App with AuthTuna
 
+I just could not come up with smth else. SO THERE NOW EXISTS A TODO LIST WITH RBAC and ORGS X-X.
+
+Maybe in future if there is demand will make smth better by using sm brains (project management tool but anyway).
+
 A comprehensive todo application demonstrating two implementation approaches: a simple server-rendered app and an advanced full-stack app, both integrated with AuthTuna for authentication and authorization.
 
 Tbh most of the code in this is just plain ai gen. But it does show how to use org in a manner. 
