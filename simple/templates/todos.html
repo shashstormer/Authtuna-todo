@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Todos</title>
+    <style>
+        body { font-family: sans-serif; background: #f4f4f4; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding-bottom: 10px; }
+        .header h1 { margin: 0; }
+        .header a { font-size: 0.9em; text-decoration: none; color: #d9534f; }
+        ul { list-style: none; padding: 0; }
+        li { display: flex; justify-content: space-between; align-items: center; padding: 10px; border-bottom: 1px solid #f0f0f0; }
+        li span { flex-grow: 1; }
+        li a { text-decoration: none; color: #d9534f; font-size: 0.8em; margin-left: 10px; }
+        form { display: flex; margin-top: 20px; }
+        input[type="text"] { flex-grow: 1; padding: 10px; border: 1px solid #ddd; border-radius: 4px; }
+        button { padding: 10px 15px; border: none; background: #5cb85c; color: white; border-radius: 4px; cursor: pointer; margin-left: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Welcome, {{ username }}!</h1>
+            <a href="/auth/logout">Logout</a>
+        </div>
+
+        <h2>Your Todos</h2>
+        <ul>
+            {% for todo in todos %}
+                <li>
+                    <span>{{ todo.content }}</span>
+                    <a href="/todos/{{ todo.id }}/delete">Delete</a>
+                </li>
+            {% else %}
+                <li>You have no todos yet!</li>
+            {% endfor %}
+        </ul>
+
+        <form action="/todos/add" method="POST">
+            <input type="text" name="content" placeholder="What needs to be done?" required>
+            <button type="submit">Add Todo</button>
+        </form>
+    </div>
+</body>
+</html>
